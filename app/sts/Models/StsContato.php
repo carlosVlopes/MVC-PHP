@@ -2,11 +2,7 @@
 
 namespace Sts\Models;
 
-// Redirecionar ou para o processamento quando o usuário não acessa o arquivo index.php
-if (!defined('C7E3L8K9E5')) {
-    header("Location: /");
-    die("Erro: Página não encontrada!");
-}
+
 
 /**
  * Models responsável em cadastrar no BD
@@ -28,10 +24,12 @@ class StsContato
     public function create(array $data): bool
     {
         $this->data = $data;
+
         $this->data['created'] = date("Y-m-d H:i:s");
         //var_dump($this->data);
 
         $createContactMsg = new \Sts\Models\helper\StsCreate();
+
         $createContactMsg->exeCreate("sts_contacts_msgs", $this->data);
 
         if ($createContactMsg->getResult()) {

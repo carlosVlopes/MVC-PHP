@@ -15,13 +15,17 @@ class ViewPageHome
     public function index(): void
     {
         $viewHome = new \App\sts\Models\StsViewPageHome();
+
         $viewHome->viewPageHomeTop();
+
         $this->data['viewHomeTop'] = $viewHome->getResultBdTop();
         
         $viewHome->viewPageHomeServ();
+
         $this->data['viewHomeServ'] = $viewHome->getResultBdServ();
         
         $viewHome->viewPageHomePrem();
+
         $this->data['viewHomePrem'] = $viewHome->getResultBdPrem();
 
         $this->data['sidebarActive'] = "view-page-home";

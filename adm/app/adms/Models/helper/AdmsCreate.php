@@ -36,6 +36,7 @@ class AdmsCreate extends AdmsConn
 
         $this->query = "INSERT INTO {$this->table} ($coluns) VALUES ($values)";
 
+        // var_dump($this->query);
         $this->exeInstruction();
     }
 

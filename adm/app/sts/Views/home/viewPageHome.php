@@ -1,6 +1,3 @@
-<?php
-
-?>
 <div class="wrapper">
     <div class="row">
         <div class="top-list">
@@ -24,7 +21,6 @@
                 <?php
                 if (!empty($this->data['viewHomeTop'])) {
                     echo "<a href='" . URLADM . "edit-home-top/index' class='btn-warning'>Editar</a> ";
-                    echo "<a href='" . URLADM . "edit-home-top-img/index' class='btn-warning'>Editar Imagem</a> ";
                 }
                 ?>
             </div>
@@ -51,37 +47,37 @@
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">ID: </span>
-                    <span class="view-adm-info"><?php echo $id; ?></span>
+                    <span class="view-adm-info"><?= $id; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Título Um: </span>
-                    <span class="view-adm-info"><?php echo $title_one_top; ?></span>
+                    <span class="view-adm-info"><?= $title_one_top; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Título Dois: </span>
-                    <span class="view-adm-info"><?php echo $title_two_top; ?></span>
+                    <span class="view-adm-info"><?= $title_two_top; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Título Três: </span>
-                    <span class="view-adm-info"><?php echo $title_three_top; ?></span>
+                    <span class="view-adm-info"><?= $title_three_top; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Link Botão: </span>
-                    <span class="view-adm-info"><?php echo $link_btn_top; ?></span>
+                    <span class="view-adm-info"><?= $link_btn_top; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Texto Botão: </span>
-                    <span class="view-adm-info"><?php echo $txt_btn_top; ?></span>
+                    <span class="view-adm-info"><?= $txt_btn_top; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Cadastrado: </span>
-                    <span class="view-adm-info"><?php echo date('d/m/Y H:i:s', strtotime($created)); ?></span>
+                    <span class="view-adm-info"><?= date('d/m/Y H:i:s', strtotime($created)); ?></span>
                 </div>
 
                 <div class="view-det-adm">
@@ -99,7 +95,8 @@
             }
             ?>
         </div>
-
+    </div><br>
+    <div class="row">
         <div class="top-list">
             <span class="title-content">Detalhes dos Serviços</span>
             <div class="top-list-right">
@@ -119,62 +116,62 @@
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">ID: </span>
-                    <span class="view-adm-info"><?php echo $id; ?></span>
+                    <span class="view-adm-info"><?= $id; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Título: </span>
-                    <span class="view-adm-info"><?php echo $serv_title; ?></span>
+                    <span class="view-adm-info"><?= $serv_title; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Título Um: </span>
-                    <span class="view-adm-info"><?php echo $serv_title_one; ?></span>
+                    <span class="view-adm-info"><?= $serv_title_one; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Ícone Um: </span>
-                    <span class="view-adm-info"><i class="icon <?php echo $serv_icon_one; ?>"></i><?php echo " - " . $serv_icon_one; ?></span>
+                    <span class="view-adm-info"><i class="icon <?= $serv_icon_one; ?>"></i><?= " - " . $serv_icon_one; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Descrição Um: </span>
-                    <span class="view-adm-info"><?php echo $serv_desc_one; ?></span>
+                    <span class="view-adm-info"><?= $serv_desc_one; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Título Dois: </span>
-                    <span class="view-adm-info"><?php echo $serv_title_two; ?></span>
+                    <span class="view-adm-info"><?= $serv_title_two; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Ícone Dois: </span>
-                    <span class="view-adm-info"><i class="icon <?php echo $serv_icon_two; ?>"></i><?php echo " - " . $serv_icon_two; ?></span>
+                    <span class="view-adm-info"><i class="icon <?= $serv_icon_two; ?>"></i><?= " - " . $serv_icon_two; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Descrição Dois: </span>
-                    <span class="view-adm-info"><?php echo $serv_desc_two; ?></span>
+                    <span class="view-adm-info"><?= $serv_desc_two; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Título Três: </span>
-                    <span class="view-adm-info"><?php echo $serv_title_three; ?></span>
+                    <span class="view-adm-info"><?= $serv_title_three; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Ícone Três: </span>
-                    <span class="view-adm-info"><i class="icon <?php echo $serv_icon_three; ?>"></i><?php echo " - " . $serv_icon_three; ?></span>
+                    <span class="view-adm-info"><i class="icon <?= $serv_icon_three; ?>"></i><?= " - " . $serv_icon_three; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Descrição Três: </span>
-                    <span class="view-adm-info"><?php echo $serv_desc_three; ?></span>
+                    <span class="view-adm-info"><?= $serv_desc_three; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Cadastrado: </span>
-                    <span class="view-adm-info"><?php echo date('d/m/Y H:i:s', strtotime($created)); ?></span>
+                    <span class="view-adm-info"><?= date('d/m/Y H:i:s', strtotime($created)); ?></span>
                 </div>
 
                 <div class="view-det-adm">
@@ -192,14 +189,14 @@
             }
             ?>
         </div>
-
+    </div><br>
+    <div class="row">
         <div class="top-list">
-            <span class="title-content">Detalhes do Topo</span>
+            <span class="title-content">Detalhes de Serviços Premium</span>
             <div class="top-list-right">
                 <?php
                 if (!empty($this->data['viewHomePrem'])) {
                     echo "<a href='" . URLADM . "edit-home-prem/index' class='btn-warning'>Editar</a> ";
-                    echo "<a href='" . URLADM . "edit-home-prem-img/index' class='btn-warning'>Editar Imagem</a> ";
                 }
                 ?>
             </div>
@@ -226,37 +223,37 @@
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">ID: </span>
-                    <span class="view-adm-info"><?php echo $id; ?></span>
+                    <span class="view-adm-info"><?= $id; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Título: </span>
-                    <span class="view-adm-info"><?php echo $prem_title; ?></span>
+                    <span class="view-adm-info"><?= $prem_title; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Subtítulo: </span>
-                    <span class="view-adm-info"><?php echo $prem_subtitle; ?></span>
+                    <span class="view-adm-info"><?= $prem_subtitle; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Descrição: </span>
-                    <span class="view-adm-info"><?php echo $prem_desc; ?></span>
+                    <span class="view-adm-info"><?= $prem_desc; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Texto Botão: </span>
-                    <span class="view-adm-info"><?php echo $prem_btn_text; ?></span>
+                    <span class="view-adm-info"><?= $prem_btn_text; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Link Botão: </span>
-                    <span class="view-adm-info"><?php echo $prem_btn_link; ?></span>
+                    <span class="view-adm-info"><?= $prem_btn_link; ?></span>
                 </div>
 
                 <div class="view-det-adm">
                     <span class="view-adm-title">Cadastrado: </span>
-                    <span class="view-adm-info"><?php echo date('d/m/Y H:i:s', strtotime($created)); ?></span>
+                    <span class="view-adm-info"><?= date('d/m/Y H:i:s', strtotime($created)); ?></span>
                 </div>
 
                 <div class="view-det-adm">

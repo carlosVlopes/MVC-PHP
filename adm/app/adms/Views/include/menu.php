@@ -25,8 +25,13 @@
                 <a href="<?= URLADM?>add-user/index" class="sidebar-nav <?= ($sidebarActive === 'add-user') ? 'active' : ''?>"><i class="icon fa-solid fa-user-plus"></i><span>Cadastrar Usuário</span></a>
             <?php endif?>
 
-            <a href="<?= URLADM?>view-page-home/index" class="sidebar-nav <?= ($sidebarActive === 'view-page-home') ? 'active' : ''?>"><i class="icon fa-solid fa-home"></i><span>Home Site</span></a>
+            <a href="<?= URLADM?>view-page-home/index" class="sidebar-nav <?= ($sidebarActive === 'view-page-home') ? 'active' : ''?>"><i class="icon fa-solid fa-home"></i><span>Home</span></a>
 
+            <a href="<?= URLADM?>view-about/index" class="sidebar-nav <?= ($sidebarActive === 'view-about') ? 'active' : ''?>"><i class="icon fa-solid fa-book"></i><span>Sobre</span></a>
+
+            <a href="<?= URLADM?>edit-contact/index" class="sidebar-nav <?= ($sidebarActive === 'view-contact') ? 'active' : ''?>"><i class="icon fa-solid fa-book"></i><span>View Contato</span></a>
+
+            <a href="<?= URLADM?>view-message/index" class="sidebar-nav <?= ($sidebarActive === 'view-message') ? 'active' : ''?>"><i class="icon fa-solid fa-book"></i><span>Mensagens</span></a>
 
             <a href="<?= URLADM?>logout/index" class="sidebar-nav"><i class="icon fa-solid fa-arrow-right-from-bracket"></i><span>Sair</span></a>
 

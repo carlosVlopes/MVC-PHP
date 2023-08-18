@@ -2,11 +2,6 @@
 
 namespace Core;
 
-// Redirecionar ou para o processamento quando o usuário não acessa o arquivo index.php
-if (!defined('C7E3L8K9E5')) {
-    header("Location: /");
-    die("Erro: Página não encontrada!");
-}
 
 /**
  * Configurações básicas do site.
@@ -29,8 +24,8 @@ abstract class Config
     protected function config(): void
     {
         //URL do projeto
-        define('URL', 'http://192.168.30.15/estudo/carlos/celke/');
-        define('URLADM', 'http://192.168.30.15/estudo/carlos/celke/adm/');
+        define('URL', 'http://192.168.30.15/estudo/carlos/MVC/');
+        define('URLADM', 'http://192.168.30.15/estudo/carlos/MVC/adm/');
 
         define('CONTROLLER', 'Home');
         define('CONTROLLERERRO', 'Erro');
