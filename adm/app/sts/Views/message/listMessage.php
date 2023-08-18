@@ -28,6 +28,25 @@
                 <div class="top-list">
                     <span class="title-content">Listar Mensagens</span>
                 </div>
+
+                <div class="top-list">
+					<form method="POST" action="">
+						<div class="row-input-search">
+							<div class="column">
+								<label class="title-input-search">Nome: </label>
+								<input type="text" name="search_name" id="search_name" class="input-search">
+							</div>
+							<div class="column">
+								<label class="title-input-search">Email: </label>
+								<input type="text" name="search_email" id="search_email" class="input-search">
+							</div>
+							<div class="column margin-top-search">
+								<button type="submit" name="search_message" class="btn-info" value="pesquisa">Pesquisar</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
             	<?php
 					if(isset($_SESSION['msg'])){
 					    echo $_SESSION['msg'];
@@ -42,6 +61,7 @@
                             <th class="list-head-content table-sm-none">Email</th>
                             <th class="list-head-content">Assunto</th>
                             <th class="list-head-content">Mensagem</th>
+                            <th class="list-head-content">Data</th>
                             <th class="list-head-content" style="width: 200px;">Ações</th>
                         </tr>
                     </thead>
@@ -53,6 +73,7 @@
 	                            <td class="list-body-content table-sm-none"><?=$message['email']?></td>
 	                            <td class="list-body-content table-sm-none"><?=$message['subject']?></td>
 	                            <td class="list-body-content table-sm-none"><?=$message['content']?></td>
+	                            <td class="list-body-content table-sm-none"><?=date( 'd-m-Y H:i:s' , strtotime($message['created']))?></td>
 	                            <td class="list-body-content">
 									<a href="<?= URLADM?>view-message/delete/<?=$message['id']?>" class="btn-danger" onclick="return confirm('Deseja excluir esse registro?')"><i class="fa-solid fa-trash-can"></i></a>
 	                            </td>
@@ -60,6 +81,9 @@
 						<?php endforeach?>
                     </tbody>
                 </table>
+
+               	<?= $this->data['pagination'] ?>
+
             </div>
         </div>
         <!-- Fim do conteudo do administrativo -->

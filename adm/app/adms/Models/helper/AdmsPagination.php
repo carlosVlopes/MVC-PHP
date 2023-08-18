@@ -30,6 +30,8 @@ class AdmsPagination extends AdmsConn
 
     private string|null $var;
 
+    private string $table;
+
     public function getOffset(): int
     {
         return $this->offSet;
@@ -45,11 +47,13 @@ class AdmsPagination extends AdmsConn
         return $this->resultBd;
     }
 
-    public function __construct(string $link, string|null $var = null)
+    public function __construct(string $link, string $table, string|null $var = null)
     {
         $this->link = $link;
 
         $this->var = $var;
+
+        $this->table = $table;
     }
 
     public function condition(int $page, int $limitResult):void
@@ -65,7 +69,7 @@ class AdmsPagination extends AdmsConn
     {
         $this->conn = $this->connectDb();
 
-        $query = "SELECT COUNT(id) AS num_result FROM adms_users";
+        $query = "SELECT COUNT(id) AS num_result FROM $this->table";
 
         $result = $this->conn->prepare($query);
 

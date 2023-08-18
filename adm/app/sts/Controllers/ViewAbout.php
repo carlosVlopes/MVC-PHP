@@ -18,7 +18,7 @@ class ViewAbout
 
         $viewAbout->viewAbout();
 
-        $this->data = $viewAbout->getResultBd();
+        $this->data['abouts'] = $viewAbout->getResultBd();
 
         $this->data['sidebarActive'] = "view-about";
 

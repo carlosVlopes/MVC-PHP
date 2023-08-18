@@ -13,6 +13,8 @@ class ListUsers
 
     private string|int|null $page;
 
+    private array|null $dataForm;
+
     /**
      * Instantiar a classe responsável em carregar a View e enviar os dados para View.
      *
@@ -20,8 +22,7 @@ class ListUsers
      */
     public function index(string|int|null $page = null): void
     {
-
-        $this->page = (int) $page ? $page : 1;
+        $listUsers = new \App\adms\Models\AdmsListUsers();
 
         $checkPermissions = new \App\adms\Models\helper\AdmsValPermissions();
 
@@ -29,22 +30,54 @@ class ListUsers
 
         $this->data['permissions'] = $checkPermissions->getResults();
 
-        $listUsers = new \App\adms\Models\AdmsListUsers();
+        $this->page = (int) $page ? $page : 1;
 
-        $listUsers->list($this->page);
+        $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-        if($listUsers->getResult()){
+        $this->data['error'] = false;
+
+        if(!empty($this->dataForm['search_user'])){
+
+            $listUsers->searchUser($this->dataForm);
+
             $this->data['listUsers'] = $listUsers->getResultBd();
 
-            $this->data['pagination'] = $listUsers->getResultPg();
-        }else{
+            if($this->data['listUsers']){
+
+                $this->data['pagination'] = '';
+
+                $this->loadView();
+
+            }else{
+                $this->data['error'] = true;
+            }
+
             $this->data['listUsers'] = [];
+            $this->data['pagination'] = '';
+        }else{
+
+            $listUsers->list($this->page);
+
+            if($listUsers->getResult()){
+                $this->data['listUsers'] = $listUsers->getResultBd();
+
+                $this->data['pagination'] = $listUsers->getResultPg();
+            }else{
+                $this->data['listUsers'] = [];
+                 $this->data['pagination'] = '';
+            }
         }
+
 
         $this->data['sidebarActive'] = "list-users";
 
+        $this->loadView();
+
+    }
+
+    public function loadView()
+    {
         $loadView = new \Core\ConfigView("adms/Views/users/listUsers", $this->data);
         $loadView->loadView();
-
     }
 }

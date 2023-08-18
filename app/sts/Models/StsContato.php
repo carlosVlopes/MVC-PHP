@@ -25,7 +25,6 @@ class StsContato
     {
         $this->data = $data;
 
-        $this->data['created'] = date("Y-m-d H:i:s");
         //var_dump($this->data);
 
         $createContactMsg = new \Sts\Models\helper\StsCreate();

@@ -5,7 +5,7 @@ namespace App\adms\Models;
 class AdmsListUsers
 {
 
-    private array|null $resultBd;
+    private array|null $resultBd = [];
 
     private bool $result;
 
@@ -34,7 +34,7 @@ class AdmsListUsers
     {
         $this->page = (int) $page ? $page : 1;
 
-        $pagination = new \App\adms\Models\helper\AdmsPagination(URLADM . 'list-users/index');
+        $pagination = new \App\adms\Models\helper\AdmsPagination(URLADM . 'list-users/index', 'adms_users');
 
         $pagination->condition($this->page, $this->limitResult);
 
@@ -45,6 +45,23 @@ class AdmsListUsers
         $select = new \App\adms\Models\helper\AdmsSelect();
 
         $select->exeSelect("adms_users", 'id,name,email',"LIMIT :limit OFFSET :offset" , "limit={$this->limitResult}&offset={$pagination->getOffset()}");
+
+        if($select->getResult()){
+            $this->resultBd = $select->getResult();
+
+            $this->result = true;
+        }else{
+            $this->result = false;
+        }
+    }
+
+    public function searchUser($data)
+    {
+        unset($data['search_user']);
+
+        $select = new \App\adms\Models\helper\AdmsSelect();
+
+        $select->exeSelect("adms_users", 'id,name,email',"WHERE name = :name OR email = :email" , "name={$data['search_name']}&email={$data['search_email']}");
 
         if($select->getResult()){
             $this->resultBd = $select->getResult();

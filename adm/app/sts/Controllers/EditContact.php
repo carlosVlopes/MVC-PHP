@@ -22,6 +22,9 @@ class EditContact
      */
     public function index(): void
     {
+
+        $this->data['sidebarActive'] = "view-contact";
+
         $this->dataForm = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
         $editContact = new \App\sts\Models\StsEditContact();

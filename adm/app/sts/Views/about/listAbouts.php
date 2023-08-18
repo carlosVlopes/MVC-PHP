@@ -47,7 +47,7 @@
                         </tr>
                     </thead>
                     <tbody class="list-body">
-						<?php foreach ($this->data as $about): ?>
+						<?php foreach ($this->data['abouts'] as $about): ?>
 	                        <tr>
 	                            <td class="list-body-content"><?=$about['id']?></td>
 	                            <td class="list-body-content"><?=$about['title']?></td>

@@ -6,6 +6,14 @@
 		$values = true;
 	}
 
+	if($this->data['error']){
+		$values = false;
+	}
+
+    // echo '<pre>';
+    // print_r($this->data['listUsers']);
+    // echo '</pre>';
+
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +37,24 @@
                         <?php endif?>
                     </div>
                 </div>
+
+				<div class="top-list">
+					<form method="POST" action="">
+						<div class="row-input-search">
+							<div class="column">
+								<label class="title-input-search">Nome: </label>
+								<input type="text" name="search_name" id="search_name" class="input-search">
+							</div>
+							<div class="column">
+								<label class="title-input-search">Email: </label>
+								<input type="text" name="search_email" id="search_email" class="input-search">
+							</div>
+							<div class="column margin-top-search">
+								<button type="submit" name="search_user" class="btn-info" value="pesquisa">Pesquisar</button>
+							</div>
+						</div>
+					</form>
+				</div>
             	<?php
 					if(isset($_SESSION['msg'])){
 					    echo $_SESSION['msg'];
@@ -70,7 +96,7 @@
                     </tbody>
                 </table>
 
-               	<?= $this->data['pagination'] ?>
+               	<?=($this->data['pagination']) ? $this->data['pagination'] : ''?>
 
             </div>
         </div>
