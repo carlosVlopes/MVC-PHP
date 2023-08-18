@@ -45,6 +45,10 @@ if (isset($this->data['form'])) {
                 <i class="fa-solid fa-lock"></i>
                 <input type="password" name="password" id="password" placeholder="Digite a senha" value="<?= $password ?>"><br><br>
             </div>
+            <div class="row">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="r_password" id="r_password" placeholder="Confirme a senha"><br><br>
+            </div>
 
             <div class="row button">
                 <input type="submit" name="SendNewUser" value="Cadastrar">

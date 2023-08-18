@@ -21,46 +21,52 @@ class AdmsNewUser
 
         $valField->valField($this->data); // chama o metodo do objeto
 
-        $email = new \App\adms\Models\helper\AdmsValEmail();
+        if($this->data['password'] !== $this->data['r_password']){
+            $_SESSION['msg'] = "<p class='alert-danger'>O campo Confirme a senha deve ser igual ao campo senha!</p>";
+            $this->result = false;
+        }else{
 
-        $email->valEmail($this->data['email']);
+            $email = new \App\adms\Models\helper\AdmsValEmail();
 
-        $senha = new \App\adms\Models\helper\AdmsValPassword();
+            $email->valEmail($this->data['email']);
 
-        $senha->valPassword($this->data['password']);
+            $senha = new \App\adms\Models\helper\AdmsValPassword();
 
-        if($email->getResult() and $senha->getResult()){
+            $senha->valPassword($this->data['password']);
 
-            if($this->vfEmailUser($this->data['email'])){
+            if($email->getResult() and $senha->getResult()){
 
-                if($valField->getResult()){
+                if($this->vfEmailUser($this->data['email'])){
 
-                    $this->data['password'] = password_hash($this->data['password'], PASSWORD_DEFAULT);
+                    if($valField->getResult()){
 
-                    $this->data['user'] = $this->data['email'];
+                        $this->data['password'] = password_hash($this->data['password'], PASSWORD_DEFAULT);
 
-                    $this->data['created'] = date("Y-m-d H:i:s");
+                        $this->data['user'] = $this->data['email'];
 
-                    $create = new \App\adms\Models\helper\AdmsCreate();
+                        $this->data['created'] = date("Y-m-d H:i:s");
 
-                    $create->exeCreate("adms_users", $this->data);
+                        $create = new \App\adms\Models\helper\AdmsCreate();
 
-                    if($create->getResult()){
-                        $_SESSION['msg'] = "<p class='alert-success'>Usuário cadastrado com sucesso!</p>";
-                        $this->result = true;
+                        $create->exeCreate("adms_users", $this->data);
+
+                        if($create->getResult()){
+                            $_SESSION['msg'] = "<p class='alert-success'>Usuário cadastrado com sucesso!</p>";
+                            $this->result = true;
+                        }else{
+                            $_SESSION['msg'] = "<p class='alert-danger'>Usuário não cadastrado, verifique os campos e tente novamente!</p>";
+                            $this->result = false;
+                        }
+
                     }else{
-                        $_SESSION['msg'] = "<p class='alert-danger'>Erro: Usuário não cadastrado!</p>";
                         $this->result = false;
                     }
-
                 }else{
+                    $_SESSION['msg'] = "<p class='alert-danger'>Esse email já está cadastrado, tente outro!</p>";
                     $this->result = false;
                 }
-            }else{
-                $_SESSION['msg'] = "<p class='alert-danger'>Erro: Esse email já está cadastrado!</p>";
-                $this->result = false;
-            }
 
+            }
         }
 
     }

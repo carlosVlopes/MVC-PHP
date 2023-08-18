@@ -15,7 +15,7 @@ class AdmsDashboard
 
     public function getUsers()
     {
-        $getUsers = new \App\adms\Models\helper\AdmsPagination(URLADM . 'list-users/index');
+        $getUsers = new \App\adms\Models\helper\AdmsPagination(URLADM . 'list-users/index', "adms_users");
 
         $getUsers->pagination(false);
 
